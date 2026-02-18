@@ -1,0 +1,14 @@
+% mixing coefficient
+pie1=0.5;
+pie2=0.5;
+%mean
+mu1=linspace(2,-2);
+mu2=linspace(0,2);
+%std
+sigma1=0.5;
+sigma2=1.2;
+
+x=linspace(-6,6);
+y=linspace(-6,6);
+
+X=norm
