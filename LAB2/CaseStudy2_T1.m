@@ -6,7 +6,7 @@ y = leukemia';
 % Get the interpoint distance matrix.
 % pdist gets the interpoint distances.
 % squareform converts them to a square matrix.
-D = squareform(pdist(y,'seuclidean'));
+D = squareform(pdist(y,'euclidean'));
 [n,p] = size(D);
 % Turn off this warning... :
 warning off MATLAB:divideByZero

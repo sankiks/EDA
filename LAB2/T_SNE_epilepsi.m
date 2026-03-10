@@ -64,5 +64,5 @@ Y = tsne(Xk, ...
 
 scatter(Y(:,1), Y(:,2), 6, secK, 'filled');
 xlabel('t-SNE 1'); ylabel('t-SNE 2');
-title(sprintf('t-SNE of downsampled iEEG snapshots (every %d-th sample kept)', step));
+title(sprintf('t-SNE of SEEG snapshots during seizure', step));
 colorbar

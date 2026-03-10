@@ -9,7 +9,7 @@ function assignment=cluster_spectral_general(S,k,mapping_method,assign_method)
 % many other. Look at the code to see them all. 
 
 % Set up global options.
-global_options; 
+%global_options; 
 
   xx=''; 
   switch (mapping_method) 

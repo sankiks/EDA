@@ -7,12 +7,14 @@ function S=AffinitySimilarityMatrix(points,sigma)
 % S_ij= exp(distance_ij^2/(2*sigma*sigma)); 
 
 % Set up global options.
-global_options; 
+
+
   
-  exp_mult_factor=-0.5/(sigma*sigma); 
+  %exp_mult_factor=-0.5 / (sigma*sigma); 
   num_vectors=size(points,2); 
 
   S=squareform(pdist(points')); % need to transpose it pdist expects row vectors
-  S=exp(exp_mult_factor*S);   
-  
-  
+  %S=exp(exp_mult_factor*S);   
+  denominator=sigma*sigma+S;
+  S=1./denominator
+ 

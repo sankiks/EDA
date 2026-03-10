@@ -1,0 +1,39 @@
+addpath('C:\Users\johan\Documents\Documents\School\EDA_course\9781498776066_eda_toolbox_v3')
+
+load oronsay;
+x=oronsay;
+[n,p]=size(x);
+maxit=10000;
+
+% Set up vector of frequencies as in grand tour.
+th=mod(exp(1:p),1)
+
+delt = exp(-5);
+
+cof=sqrt(2/p);
+
+%set up storage space for projection vectors
+a = zeros(p,1); b = zeros(p,1);%one for a column vector otherwise a matris
+z= zeros(n,2);
+
+% Get an initial plot.
+
+ph = plot(z(:,1),z(:,2),'o','erasemode','normal');
+axis equal, axis off
+set(gcf,'backingstore','off','renderer','painters','DoubleBuffer','on')
+
+for t=0:delt:(delt*maxit) %steps of delt
+%find the transformation vectors
+    for j= 1:p/2
+    a(2*(j-1)+1)=cof*sin(th(j)*t);
+    a(2*j)=cof*cos(th(j)*t);
+    b(2*(j-1)+1)=cof*cos(th(j)*t);
+    b(2*j)=cof*(-sin(th(j)*t));
+
+    end
+% Project onto the vectors.
+z(:,1) = x*a;
+z(:,2) = x*b;
+set(ph,'xdata',z(:,1),'ydata',z(:,2))
+ drawnow
+end
